@@ -2,7 +2,7 @@ module ALUDecoder(
     input wire [1:0] ALUOp,
     input wire op5,
     input wire [2:0] funct3,
-    input wire funct7_5,
+    input wire funct7,
     output reg [3:0] ALUControl
 );
 
@@ -24,12 +24,12 @@ always @(*) begin
         2'b01: ALUControl = ALU_SUB; // BRANCH
         2'b10: begin // R TYPE INSTRUCTIONS
             case (funct3)
-                3'b000: ALUControl = ({op5, funct7_5} == 2'b11) ? ALU_SUB : ALU_ADD;
+                3'b000: ALUControl = ({op5, funct7} == 2'b11) ? ALU_SUB : ALU_ADD;
                 3'b001: ALUControl = ALU_SLL;
                 3'b010: ALUControl = ALU_SLT;
                 3'b011: ALUControl = ALU_SLTU;
                 3'b100: ALUControl = ALU_XOR;
-                3'b101: ALUControl = (funct7_5 == 1'b1) ? ALU_SRA : ALU_SRL;
+                3'b101: ALUControl = (funct7 == 1'b1) ? ALU_SRA : ALU_SRL;
                 3'b110: ALUControl = ALU_OR;
                 3'b111: ALUControl = ALU_AND;
                 default: ALUControl = ALU_ADD;

@@ -1,7 +1,7 @@
-module CONTROLLER (
+module controller (
     input wire [6:0] opcode,
     input wire [2:0] funct3,
-    input wire funct7_5,
+    input wire funct7,
     input wire [3:0] Flags,
     output wire [1:0] PCSrc,
     output wire ResultSrc,
@@ -41,7 +41,7 @@ ALUDecoder aludecoder_inst(
     .ALUOp(ALUOp),
     .op5(opcode[5]),
     .funct3(funct3),
-    .funct7_5(funct7_5),
+    .funct7(funct7),
     .ALUControl(ALUControl)
 );
 
