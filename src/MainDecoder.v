@@ -73,3 +73,5 @@ assign ALUSrc = (opcode == opcode_I_LOAD) ? 1'b1 :
                 (opcode == opcode_S_STORE) ? 1'b1 :
                 (opcode == opcode_I_IMM) ? 1'b1 :
                 (opcode == opcode_I_JALR) ? 1'b1 : 1'b0;
+                
+endmodule

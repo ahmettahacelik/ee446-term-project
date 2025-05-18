@@ -1,8 +1,8 @@
 module CONTROLLER (
     input wire [6:0] opcode,
     input wire [2:0] funct3,
-    input wire func7_5,
-    input wire [3:0] Flags
+    input wire funct7_5,
+    input wire [3:0] Flags,
     output wire [1:0] PCSrc,
     output wire ResultSrc,
     output wire MemWrite,
@@ -32,7 +32,7 @@ MainDecoder main_decoder_inst(
 PCLogic pclogic_inst(
     .Branch(Branch),
     .Jump(Jump),
-    .func3(func3),
+    .funct3(funct3),
     .Flags(Flags),
     .PCSrc(PCSrc)
 );
@@ -40,7 +40,9 @@ PCLogic pclogic_inst(
 ALUDecoder aludecoder_inst(
     .ALUOp(ALUOp),
     .op5(opcode[5]),
-    .func3(func3),
-    .func7_5(func7_5),
+    .funct3(func3),
+    .funct7_5(funct7_5),
     .ALUControl(ALUControl)
 );
+
+endmodule

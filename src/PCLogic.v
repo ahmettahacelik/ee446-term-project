@@ -1,7 +1,7 @@
 module PCLogic (
     input wire Branch,
     input wire [1:0] Jump,
-    input wire [2:0] func3,
+    input wire [2:0] funct3,
     input wire [3:0] Flags,       // N, Z, C, V
     output wire [1:0] PCSrc
 );
@@ -22,7 +22,7 @@ localparam branchBGEU = 3'b111;
 reg CondEx;
 
 always @(*) begin
-    case (func3):
+    case (funct3)
         branchBEQ: CondEx = Z;
         branchBNE: CondEx = ~Z;
         branchBLT: CondEx = N ^ V;
@@ -36,3 +36,5 @@ end
 assign PCSrc =  (Jump == 2'b10) ? 2'b10 :
                 (Jump == 2'b01) ? 2'b01 :
                 (Branch & CondEx == 1'b1) ? 2'b01 : 2'b00;
+             
+endmodule
