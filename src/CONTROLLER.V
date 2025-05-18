@@ -40,7 +40,7 @@ PCLogic pclogic_inst(
 ALUDecoder aludecoder_inst(
     .ALUOp(ALUOp),
     .op5(opcode[5]),
-    .funct3(func3),
+    .funct3(funct3),
     .funct7_5(funct7_5),
     .ALUControl(ALUControl)
 );
