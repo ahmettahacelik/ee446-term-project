@@ -1,7 +1,7 @@
 module MainDecoder(
     input wire [6:0] opcode,
     output wire Branch,
-    output wire Jump,
+    output wire [1:0] Jump,
     output wire ResultSrc,
     output wire MemWrite,
     output wire [1:0] ImmSrc,
@@ -32,9 +32,9 @@ localparam opcode_J_JAL = 7'b1101111;
 // if(opcode == branch) then branch = 1, else branch = 0
 assign Branch = (opcode == opcode_B_BRANCH) ? 1'b1 : 1'b0;
 
-// if(opcode == jump) then jump = 1, else jump = 0
-assign Jump =   (opcode == opcode_I_JALR) ? 1'b1 :
-                (opcode == opcode_J_JAL) ? 1'b1 : 1'b0;
+// if(opcode == jalr) then jump = 10, ifelse(opcode == jal) then jump = 01, else jump = 0
+assign Jump =   (opcode == opcode_I_JALR) ? 2'b10 :
+                (opcode == opcode_J_JAL) ? 2'b01 : 2'b00;
 
 // if(opcode == load) then resultsrc = 1, else resultsrc = 0
 assign ResultSrc =  (opcode == opcode_I_LOAD) ? 1'b1 : 1'b0;
