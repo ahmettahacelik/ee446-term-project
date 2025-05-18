@@ -6,7 +6,7 @@ module MainDecoder(
     output wire MemWrite,
     output wire [1:0] ImmSrc,
     output wire RegWrite,
-    output wire WD3Src,
+    output wire [1:0] WD3Src,
     output wire [1:0] ALUOp
 );
 
@@ -55,8 +55,9 @@ assign ImmSrc = (opcode == opcode_I_IMM) ? 3'b000 :
 assign RegWrite =   (opcode == opcode_S_STORE) ? 1'b0 :
                     (opcode == opcode_B_BRANCH) ? 1'b0 : 1'b1;
 
-// if(opcode == jump) then wd3src = 1, else wd3src = 0 (same as jump)
-assign WD3Src = Jump;
+// if(opcode == jump) then wd3src = 01, ifelse(opcode == auipc) then w3dsrc = 10, else wd3src = 0 (same as jump)
+assign WD3Src = (Jump == 1'b1) ? 2'b01 :
+                (opcode == opcode_U_AUIPC) ? 2'b10 : 2'b00;
 
 assign ALUOp =  (opcode == opcode_I_LOAD) ? 2'b00 :
                 (opcode == opcode_S_STORE) ? 2'b00 :
