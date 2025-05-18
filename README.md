@@ -17,10 +17,9 @@ This project implements a single-cycle RISC-V processor in HDL as part of the **
 | OTHERS                 | LUI, AUIPC                                 |
 
 
-## 📚 References
+## 📚 Additional References
 
-- [RISC-V Unprivileged ISA Specification (RV32I)](https://github.com/riscv/riscv-isa-manual)
-- Implemented based on EE446 course materials and project guidelines.
+- [The RISC-V Instruction Set Manual, Volume I, Unprivileged Architecture](https://drive.google.com/file/d/1uviu1nH-tScFfgrovvFCrj7Omv8tFtkp/view)
 - [RISC-V Reference](https://www.cs.sfu.ca/~ashriram/Courses/CS295/assets/notebooks/RISCV/RISCV_CARD.pdf)
 - [RISC-V Cheat Sheet](https://projectf.io/posts/riscv-cheat-sheet/)
 
