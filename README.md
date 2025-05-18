@@ -2,16 +2,20 @@
 
 This project implements a single-cycle RISC-V processor in HDL as part of the **EE446 Computer Architecture II** course. The processor supports a subset of the **RV32I** base instruction set.
 
-## ✅ Instruction Set Implemented
+## 📜 INSTRUCTION SET IMPLEMENTED
 
-| Type   | Instructions |
-|--------|--------------|
-| R-type | `add`, `sub`, `and`, `or`, `xor`, `sll`, `srl`, `sra`, `slt`, `sltu` |
-| I-type | `addi`, `andi`, `ori`, `xori`, `lw`, `lh`, `lb`, `jalr`, `slti`, `sltiu` |
-| S-type | `sw`, `sh`, `sb` |
-| B-type | `beq`, `bne`, `blt`, `bge`, `bltu`, `bgeu` |
-| U-type | `lui`, `auipc` |
-| J-type | `jal` |
+| Category               | Instructions                              |
+|------------------------|-------------------------------------------|
+| ARITHMETIC INSTRUCTIONS | ADD[I], SUB                               |
+| LOGIC INSTRUCTIONS     | AND[I], OR[I], XOR[I]                      |
+| SHIFT INSTRUCTIONS     | SLL[I], SRL[I], SRA[I]                     |
+| SET IF LESS THAN       | SLT[I][U]                                  |
+| CONDITIONAL BRANCH     | BEQ, BNE, BLT[U], BGE[U]                   |
+| UNCONDITIONAL JUMP     | JAL, JALR (Return-address stack push/pop functionality will not be implemented) |
+| LOAD                   | LW, LH[U], LB[U]                           |
+| STORE                  | SW, SH, SB                                 |
+| OTHERS                 | LUI, AUIPC                                 |
+
 
 ## 📚 References
 
