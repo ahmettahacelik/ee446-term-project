@@ -8,7 +8,7 @@ module CONTROLLER (
     output wire MemWrite,
     output wire [1:0] ImmSrc,
     output wire RegWrite,
-    output wire WD3Src,
+    output wire [1:0] WD3Src,
     output wire [1:0] ALUOp
 );
 
