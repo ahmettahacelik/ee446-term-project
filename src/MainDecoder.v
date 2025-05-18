@@ -4,10 +4,11 @@ module MainDecoder(
     output wire [1:0] Jump,
     output wire ResultSrc,
     output wire MemWrite,
-    output wire [1:0] ImmSrc,
+    output wire [2:0] ImmSrc,
     output wire RegWrite,
     output wire [1:0] WD3Src,
-    output wire [1:0] ALUOp
+    output wire [1:0] ALUOp,
+    output wire ALUSrc
 );
 
 
@@ -65,4 +66,10 @@ assign ALUOp =  (opcode == opcode_I_LOAD) ? 2'b00 :
                 (opcode == opcode_B_BRANCH) ? 2'b01 :
                 (opcode == opcode_I_IMM) ? 2'b10 :
                 (opcode == opcode_I_JALR) ? 2'b00 :
-                (opcode == opcode_U_AUIPC) ? 2'b00 : 2'b00;
+                (opcode == opcode_U_AUIPC) ? 2'b00 :
+                (opcode == opcode_U_LUI) ? 2'b11 : 2'b00;
+
+assign ALUSrc = (opcode == opcode_I_LOAD) ? 1'b1 :
+                (opcode == opcode_S_STORE) ? 1'b1 :
+                (opcode == opcode_I_IMM) ? 1'b1 :
+                (opcode == opcode_I_JALR) ? 1'b1 : 1'b0;
