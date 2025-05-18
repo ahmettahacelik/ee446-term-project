@@ -42,8 +42,14 @@ assign ResultSrc =  (opcode == opcode_I_LOAD) ? 1'b1 : 1'b0;
 // if(opcode == s) then memwrite = 1, else memwrite = 0
 assign MemWrite =   (opcode == opcode_S_STORE) ? 1'b1 : 1'b0;
 
-// TODO
-assign ImmSrc = 2'b00;
+assign ImmSrc = (opcode == opcode_I_IMM) ? 3'b000 :
+                (opcode == opcode_I_LOAD) ? 3'b000 :
+                (opcode == opcode_S_STORE) ? 3'b001 :
+                (opcode == opcode_B_BRANCH) ? 3'b010 :
+                (opcode == opcode_I_JALR) ? 3'b011 :
+                (opcode == opcode_J_JAL) ? 3'b011 :
+                (opcode == opcode_U_LUI) ? 3'b100 :
+                (opcode == opcode_U_AUIPC) ? 3'b100 : 3'b000;
 
 // if(opcode == s or b) then regwrite = 0, else regwrite = 1
 assign RegWrite =   (opcode == opcode_S_STORE) ? 1'b0 :
@@ -52,5 +58,10 @@ assign RegWrite =   (opcode == opcode_S_STORE) ? 1'b0 :
 // if(opcode == jump) then wd3src = 1, else wd3src = 0 (same as jump)
 assign WD3Src = Jump;
 
-// TODO
-assign ALUOp = 2'b00;
+assign ALUOp =  (opcode == opcode_I_LOAD) ? 2'b00 :
+                (opcode == opcode_S_STORE) ? 2'b00 :
+                (opcode == opcode_R_REGISTER) ? 2'b10 :
+                (opcode == opcode_B_BRANCH) ? 2'b01 :
+                (opcode == opcode_I_IMM) ? 2'b10 :
+                (opcode == opcode_I_JALR) ? 2'b00 :
+                (opcode == opcode_U_AUIPC) ? 2'b00 : 2'b00;
