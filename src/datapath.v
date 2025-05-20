@@ -1,7 +1,7 @@
 module datapath(
     input RESET,
     input clk,
-    input [3:0] DebugSlctIn,
+    input [4:0] DebugSlctIn,
     input [1:0] PCSrc,
     input ResultSrc,
     input MemWrite,

@@ -40,7 +40,7 @@ debouncer debouncer_0(
 Single_Cycle_Computer my_computer(
         .clk                (buttons[4]             ),
         .reset              (buttons[0]             ),
-        .debug_reg_select   (SW[3:0]                ),
+        .debug_reg_select   (SW[4:0]                ),
         .debug_reg_out      (reg_out                ),
         .fetchPC            (PC                     )
 );
