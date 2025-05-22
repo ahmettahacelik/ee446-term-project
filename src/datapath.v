@@ -10,7 +10,9 @@ module datapath(
     input [2:0] ImmSrc,
     input RegWrite,
     input [1:0] WD3Src,
+    input wire UART_TXD_IN,
 
+    output wire UART_RXD_OUT,
     output [6:0] op,
     output [2:0] funct3,
     output funct7,
@@ -70,16 +72,16 @@ Extender Extender_inst(
 );
 
 UART uart_inst(
-    .CLK100MHZ(),   // 100MHZ clock bağlanacak
+    .CLK100MHZ(CLK100MHZ),   // 100MHZ clock bağlanacak
     .reset(RESET),
-    .rx(),          // RX bağlanacak (UART_TXD_IN)
+    .rx(UART_TXD_IN),          // RX bağlanacak (UART_TXD_IN)
     .opcode(op),
     .funct3(funct3),
     .ALUResult(ALUResult),
     .ReadData(ReadData),
     .WriteData(WriteData),
     .ReadData_RX(ReadData_RX),
-    .tx()           // TX bağlanacak (UART_RXD_OUT)
+    .tx(UART_RXD_OUT)           // TX bağlanacak (UART_RXD_OUT)
 );
 
 ////////////////
