@@ -21,6 +21,7 @@ module Single_Cycle_Computer(
     wire [1:0] WD3Src;
     wire [3:0] ALUControl;
     wire ALUSrc;
+    wire [3:0] flags;
 
 // Datapath instantiation
 datapath my_datapath (
@@ -40,6 +41,7 @@ datapath my_datapath (
     .funct3(funct3),
     .funct7(funct7),
     .DebugOut(debug_reg_out),
+    .PC(fetchPC),
     .Flags(flags),
     .UART_RXD_OUT(UART_RXD_OUT),
     .UART_TXD_IN(UART_TXD_IN)
