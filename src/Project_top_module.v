@@ -9,6 +9,11 @@ module Project_top_module(
 	                            BTND,
 	//////////// SW //////////
 	input wire	     [15:0]		SW,
+
+    /////////// UART /////////
+    input wire UART_TXD_IN,
+    output wire UART_RXD_OUT,
+
 	//////////// LED //////////
 	output wire		 [15:0]		LED,
     //////////// 7 SEG //////////
@@ -38,11 +43,14 @@ debouncer debouncer_0(
     );
 
 Single_Cycle_Computer my_computer(
+        .CLK100MHZ          (CLK100MHZ              ),
         .clk                (buttons[4]             ),
         .reset              (buttons[0]             ),
         .debug_reg_select   (SW[4:0]                ),
         .debug_reg_out      (reg_out                ),
-        .fetchPC            (PC                     )
+        .fetchPC            (PC                     ),
+        .UART_RXD_OUT       (UART_RXD_OUT           ),
+        .UART_TXD_IN        (UART_TXD_IN            )
 );
 
 endmodule

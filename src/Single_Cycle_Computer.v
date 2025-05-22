@@ -1,9 +1,12 @@
 module Single_Cycle_Computer(
+    input wire CLK100MHZ,
     input reset,               // External Reset
     input clk,                 // External Clock
     input [4:0] debug_reg_select,   // Select register to debug
     output [31:0] debug_reg_out,    // Debug register value output
     output [31:0] fetchPC           // Program Counter output
+    input wire UART_TXD_IN,
+    output wire UART_RXD_OUT
 );
 // Internal wires for datapath-controller connection
     wire [6:0] opcode;
@@ -22,6 +25,7 @@ module Single_Cycle_Computer(
 
 // Datapath instantiation
 datapath my_datapath (
+    .CLK100MHZ(CLK100MHZ),
     .RESET(reset),
     .clk(clk),
     .DebugSlctIn(debug_reg_select),
@@ -38,7 +42,9 @@ datapath my_datapath (
     .funct7(funct7),
     .DebugOut(debug_reg_out),
     .PC(fetchPC),
-    .Flags(flags)
+    .Flags(flags),
+    .UART_RXD_OUT(UART_RXD_OUT),
+    .UART_TXD_IN(UART_TXD_IN)
 );
 
 // Controller instantiation
