@@ -1,7 +1,7 @@
 module Single_Cycle_Computer(
     input reset,               // External Reset
     input clk,                 // External Clock
-    input [4:0] debug_reg_select,   // Select register to debug
+    input [3:0] debug_reg_select,   // Select register to debug
     output [31:0] debug_reg_out,    // Debug register value output
     output [31:0] fetchPC           // Program Counter output
 );
