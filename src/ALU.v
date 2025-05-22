@@ -4,8 +4,6 @@ module ALU #(parameter WIDTH=32)(
 	  input [WIDTH-1:0] DATA_A,
 	  input [WIDTH-1:0] DATA_B,
       output reg [WIDTH-1:0] OUT,
-	  output reg CO,
-	  output reg OVF,
 	  output [3:0] Flags  //  NZCV
     );
 // for branch instructions alucontrol= sub 
@@ -23,10 +21,10 @@ localparam ADD=4'b0000,
           SRA=4'b1000,
           MOVE=4'b1001,
           SLTU=4'b1010 ;
-
+reg CO,OVF;
 // Assign the zero and negative flasg here since it is very simple
-assign N = OUT[WIDTH-1];
-assign Z = ~(|OUT);
+wire N = OUT[WIDTH-1];
+wire Z = ~(|OUT);
 assign Flags = {N, Z, CO, OVF};  // NZCV	 
 always@(*) begin
 	case(control)
