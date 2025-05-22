@@ -1,12 +1,12 @@
 module Single_Cycle_Computer(
-    input wire CLK100MHZ,
+    input CLK100MHZ,
     input reset,               // External Reset
     input clk,                 // External Clock
     input [4:0] debug_reg_select,   // Select register to debug
     output [31:0] debug_reg_out,    // Debug register value output
-    output [31:0] fetchPC           // Program Counter output
-    input wire UART_TXD_IN,
-    output wire UART_RXD_OUT
+    output [31:0] fetchPC,           // Program Counter output
+    input UART_TXD_IN,
+    output UART_RXD_OUT
 );
 // Internal wires for datapath-controller connection
     wire [6:0] opcode;

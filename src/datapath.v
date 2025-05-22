@@ -1,4 +1,5 @@
 module datapath(
+    input CLK100MHZ,
     input RESET,
     input clk,
     input [4:0] DebugSlctIn,
