@@ -18,6 +18,7 @@ module Single_Cycle_Computer(
     wire [1:0] WD3Src;
     wire [3:0] ALUControl;
     wire ALUSrc;
+    wire [3:0] flags;
 
 // Datapath instantiation
 datapath my_datapath (
