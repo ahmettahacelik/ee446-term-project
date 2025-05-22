@@ -1,7 +1,7 @@
 module Single_Cycle_Computer(
     input reset,               // External Reset
     input clk,                 // External Clock
-    input [3:0] debug_reg_select,   // Select register to debug
+    input [4:0] debug_reg_select,   // Select register to debug
     output [31:0] debug_reg_out,    // Debug register value output
     output [31:0] fetchPC           // Program Counter output
 );
@@ -36,6 +36,7 @@ datapath my_datapath (
     .funct3(funct3),
     .funct7(funct7),
     .DebugOut(debug_reg_out),
+    .PC(fetchPC),
     .Flags(flags)
 );
 
