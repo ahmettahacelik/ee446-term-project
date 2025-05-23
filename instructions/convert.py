@@ -12,22 +12,32 @@ def process_instructions(filename):
     desc_path = os.path.join(base_path, "InstructionsDescription.txt")
     hex_path = os.path.join(base_path, "Instructions.hex")
 
-    with open(input_path, 'r') as fin, \
-         open(desc_path, 'w') as desc_out, \
-         open(hex_path, 'w') as hex_out:
-
-        for i, line in enumerate(fin):
-            if i >= 64:
-                break  # Limit to 64 instructions
+    # Read and parse lines from input
+    instructions = []
+    with open(input_path, 'r') as fin:
+        for line in fin:
             parts = line.strip().split(maxsplit=1)
-            if len(parts) < 2:
-                continue  # skip malformed lines
-            hex_val, mnemonic = parts
-            pc = f"{i * 4:02X}"
-            rev_bytes = reverse_bytes(hex_val)
+            if len(parts) == 2:
+                hex_val, mnemonic = parts
+                rev_bytes = reverse_bytes(hex_val)
+                instructions.append((rev_bytes, mnemonic))
+            elif len(parts) == 1 and parts[0].startswith("0x"):
+                rev_bytes = reverse_bytes(parts[0])
+                instructions.append((rev_bytes, ""))
 
-            desc_out.write(f"0x{pc}\t{rev_bytes}\t{mnemonic}\n")
-            hex_out.write(f"{rev_bytes}\n")
+    # Pad with zero instructions if less than 64
+    while len(instructions) < 64:
+        instructions.append(("00 00 00 00", ""))
+
+    # Write output files
+    with open(desc_path, 'w') as desc_out, open(hex_path, 'w') as hex_out:
+        for i, (rev_bytes, mnemonic) in enumerate(instructions):
+            pc = f"{i * 4:02X}"
+            desc_out.write(f"0x{pc}:\t{rev_bytes}\t\t{mnemonic}")
+            hex_out.write(f"{rev_bytes}")
+            if(i != 63):
+                desc_out.write('\n')
+                hex_out.write('\n')
 
 # Run the function
 process_instructions("raw_instr.txt")
