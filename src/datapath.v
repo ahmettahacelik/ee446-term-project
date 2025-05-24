@@ -44,7 +44,9 @@ ALU #(32) alu_inst (
   .DATA_A(SrcA),        
   .DATA_B(SrcB),       
   .OUT(ALUResult),       
-  .Flags(Flags) );
+  .Flags(Flags),
+  .CI(1'b0)
+  );
   
 Register_file #(32) Register_file_inst(
    .clk(clk), 
