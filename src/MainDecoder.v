@@ -57,7 +57,7 @@ assign RegWrite =   (opcode == opcode_S_STORE) ? 1'b0 :
                     (opcode == opcode_B_BRANCH) ? 1'b0 : 1'b1;
 
 // if(opcode == jump) then wd3src = 01, ifelse(opcode == auipc) then w3dsrc = 10, else wd3src = 0 (same as jump)
-assign WD3Src = (Jump == 1'b1) ? 2'b01 :
+assign WD3Src = (Jump != 2'b0) ? 2'b01 :
                 (opcode == opcode_U_AUIPC) ? 2'b10 : 2'b00;
 
 assign ALUOp =  (opcode == opcode_I_LOAD) ? 2'b00 :
@@ -72,6 +72,7 @@ assign ALUOp =  (opcode == opcode_I_LOAD) ? 2'b00 :
 assign ALUSrc = (opcode == opcode_I_LOAD) ? 1'b1 :
                 (opcode == opcode_S_STORE) ? 1'b1 :
                 (opcode == opcode_I_IMM) ? 1'b1 :
-                (opcode == opcode_I_JALR) ? 1'b1 : 1'b0;
+                (opcode == opcode_I_JALR) ? 1'b1 :
+                (opcode == opcode_U_LUI) ? 1'b1 : 1'b0;
                 
 endmodule

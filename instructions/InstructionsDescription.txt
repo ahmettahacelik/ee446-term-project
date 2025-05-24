@@ -28,10 +28,10 @@
 0x6C:	63 d4 12 00		bge x5, x1, 8 (taken)
 0x70:	23 a0 10 00		sw x1, 0(x1) (not executed) write [0x341] to 0x341
 0x74:	03 8b 00 00		lb x22, 0(x1)    r22: 0xffffffa5
-0x78:	b7 3b 12 00		lui x23, 0x123   r23: 0x123000 //0x341 ???
+0x78:	b7 3b 12 00		lui x23, 0x123   r23: 0x123000
 0x7C:	63 68 08 00		bltu x16, x0, 0x10   (not taken)
 0x80:	6f 0c 00 02		jal x24, 0x20    r24: 0x84, PC: 0xa0
-0x84:	e7 0d 00 0d		jalr x27, 208(x0)    r27: 0x88, PC: 0xd0 //r27:0xd0 ???
+0x84:	e7 0d 00 0d		jalr x27, 208(x0)    r27: 0x88, PC: 0xd0
 0x88:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
 0x8C:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
 0x90:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
@@ -39,7 +39,7 @@
 0x98:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
 0x9C:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
 0xA0:	97 bc 00 00		auipc x25, 0xb    r25: 0xb0a0
-0xA4:	67 0d 41 04		jalr x26, 68(x2) r26: 0xa8, PC: 0x84 //r26: 0x00010084 ???
+0xA4:	67 0d 41 04		jalr x26, 68(x2) r26: 0xa8, PC: 0x84
 0xA8:	00 00 00 00		
 0xAC:	00 00 00 00		
 0xB0:	00 00 00 00		
