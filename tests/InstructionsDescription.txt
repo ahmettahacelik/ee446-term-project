@@ -1,0 +1,64 @@
+0x00:	93 00 10 34		addi x1, x0, 0x341   r1: 0x341
+0x04:	13 f1 c0 cc		andi x2, x1, 0xccc   r2: 0x040
+0x08:	b3 81 20 40		sub x3, x1, x2   r3: 0x301
+0x0C:	33 62 31 00		or x4, x2, x3    r4: 0x341
+0x10:	93 82 90 01		add x5, x1, 25   r5: 0x35a
+0x14:	13 13 21 00		slli x6, x2, 2   r6: 0x100
+0x18:	23 00 10 40		sb x1, 0x400(x0) send A
+0x1C:	23 00 50 40		sb x5, 0x400(x0) send Z
+0x20:	83 23 40 40		lw x7, 0x404(x0) receive byte1
+0x24:	03 24 40 40		lw x8, 0x404(x0) receive byte2
+0x28:	83 24 40 40		lw x9, 0x404(x0) receive byte3 (expect 0xffffffff)
+0x2C:	23 00 70 40		sb x7, 0x400(x0) send byte1
+0x30:	23 00 80 40		sb x8, 0x400(x0) send byte2
+0x34:	63 98 40 00		bne x1, x4, 0x10 (not taken)
+0x38:	33 c5 54 00		xor x10, x9, x5  r10: fffffca5
+0x3C:	93 d5 81 00		srli x11, x3, #8 r11: 0x3
+0x40:	63 88 40 00		beq x1, x4, 0x10 (taken)
+0x44:	13 06 c0 00		addi x12, x0, 0xc    (not executed)
+0x48:	93 06 d0 00		addi x13, x0, 0xd    (not executed)
+0x4C:	13 07 e0 00		addi x14, x0, 0xe    (not executed)
+0x50:	93 07 f0 00		addi x15, x0, 0xf    r15: 0xf
+0x54:	33 58 b5 40		sra x16, x10, x11    r16: 0xffffff94
+0x58:	b3 28 08 00		slt x17, x16, x0 r17: 0x1
+0x5C:	13 39 08 00		sltiu x18, x16, #0 r18: 0x0
+0x60:	23 a0 a0 00		sw x10, 0(x1)    write [0x341] to 0xfffffca5
+0x64:	03 9a 01 04		lh x20, 64(x3)   r20: 0xfffffca5
+0x68:	83 5a 02 00		lhu x21, 0(x4)   r21: 0xfca5
+0x6C:	63 d4 12 00		bge x5, x1, 8 (taken)
+0x70:	23 a0 10 00		sw x1, 0(x1) (not executed) write [0x341] to 0x341
+0x74:	03 8b 00 00		lb x22, 0(x1)    r22: 0xffffffa5
+0x78:	b7 3b 12 00		lui x23, 0x123   r23: 0x123000
+0x7C:	63 68 08 00		bltu x16, x0, 0x10   (not taken)
+0x80:	6f 0c 00 02		jal x24, 0x20    r24: 0x84, PC: 0xa0
+0x84:	e7 0d 00 0d		jalr x27, 208(x0)    r27: 0x88, PC: 0xd0
+0x88:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
+0x8C:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
+0x90:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
+0x94:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
+0x98:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
+0x9C:	13 0c 80 01		addi x25, x0, 0x19   (not executed)
+0xA0:	97 bc 00 00		auipc x25, 0xb    r25: 0xb0a0
+0xA4:	67 0d 41 04		jalr x26, 68(x2) r26: 0xa8, PC: 0x84
+0xA8:	00 00 00 00		
+0xAC:	00 00 00 00		
+0xB0:	00 00 00 00		
+0xB4:	00 00 00 00		
+0xB8:	00 00 00 00		
+0xBC:	00 00 00 00		
+0xC0:	00 00 00 00		
+0xC4:	00 00 00 00		
+0xC8:	00 00 00 00		
+0xCC:	00 00 00 00		
+0xD0:	13 0e c0 01		addi x28, x0, #28
+0xD4:	83 2e 40 40		lw x29, 0x404(x0)
+0xD8:	13 0f e0 01		addi x30, x0, #30
+0xDC:	83 2f 40 40		lw x31, 1028(x0)
+0xE0:	00 00 00 00		
+0xE4:	00 00 00 00		
+0xE8:	00 00 00 00		
+0xEC:	00 00 00 00		
+0xF0:	00 00 00 00		
+0xF4:	00 00 00 00		
+0xF8:	00 00 00 00		
+0xFC:	00 00 00 00		

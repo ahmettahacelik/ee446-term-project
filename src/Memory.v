@@ -10,8 +10,13 @@ module Memory#(
     output reg [31:0] RD
 );
 
-reg [7:0] mem [0:255];  // byte-addressable memory
-
+reg [7:0] mem [4096:0];  // byte-addressable memory
+integer i;
+initial begin
+    for (i = 0; i < 4096; i = i + 1) begin
+        mem[i] = 8'b0;
+    end
+end
 integer k;
 
 always @(posedge clk) begin

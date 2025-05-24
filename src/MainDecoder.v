@@ -47,7 +47,7 @@ assign ImmSrc = (opcode == opcode_I_IMM) ? 3'b000 :
                 (opcode == opcode_I_LOAD) ? 3'b000 :
                 (opcode == opcode_S_STORE) ? 3'b001 :
                 (opcode == opcode_B_BRANCH) ? 3'b010 :
-                (opcode == opcode_I_JALR) ? 3'b011 :
+                (opcode == opcode_I_JALR) ? 3'b000 :
                 (opcode == opcode_J_JAL) ? 3'b011 :
                 (opcode == opcode_U_LUI) ? 3'b100 :
                 (opcode == opcode_U_AUIPC) ? 3'b100 : 3'b000;

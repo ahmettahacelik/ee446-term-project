@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1748089859" />
+    <testcase name="Single_cycle_test" classname="Single_Cycle_Test" file="C:\Users\zulal\Desktop\ee446-term-project\tests\Single_Cycle_Test.py" lineno="235" time="0.1726846694946289" sim_time_ns="370000.001" ratio_time="2142633.750192331" />
+  </testsuite>
+</testsuites>
