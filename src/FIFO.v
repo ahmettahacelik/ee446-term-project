@@ -49,6 +49,7 @@ always @(negedge clk_read) begin
         valid <= 1'b1;
     end
     else begin
+        read_data <= 0;
         valid <= 1'b0;
     end
 end
