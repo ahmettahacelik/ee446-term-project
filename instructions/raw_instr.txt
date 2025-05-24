@@ -6,7 +6,7 @@
 0x00211313 slli x6, x2, 2   r6: 0x100
 0x40100023 sb x1, 0x400(x0) send A
 0x40500023 sb x5, 0x400(x0) send Z
-0x40402383 lw x7, 0x404(x0) receive byte1 //CANNOT RECEIVE FIRST BYTE
+0x40402383 lw x7, 0x404(x0) receive byte1
 0x40402403 lw x8, 0x404(x0) receive byte2
 0x40402483 lw x9, 0x404(x0) receive byte3 (expect 0xffffffff)
 0x40700023 sb x7, 0x400(x0) send byte1
@@ -19,7 +19,7 @@
 0x00d00693 addi x13, x0, 0xd    (not executed)
 0x00e00713 addi x14, x0, 0xe    (not executed)
 0x00f00793 addi x15, x0, 0xf    r15: 0xf
-0x40b55833 sra x16, x10, x11    r16: 0xffffff95 //0xffffff94
+0x40b55833 sra x16, x10, x11    r16: 0xffffff94
 0x000828b3 slt x17, x16, x0 r17: 0x1
 0x00083913 sltiu x18, x16, #0 r18: 0x0
 0x00a0a023 sw x10, 0(x1)    write [0x341] to 0xfffffca5
@@ -27,7 +27,7 @@
 0x00025a83 lhu x21, 0(x4)   r21: 0xfca5
 0x0012d463 bge x5, x1, 8 (taken)
 0x0010a023 sw x1, 0(x1) (not executed) write [0x341] to 0x341
-0x00008b03 lb x22, 0(x1)    r22: 0xa5 //0xffffffa5
+0x00008b03 lb x22, 0(x1)    r22: 0xffffffa5
 0x00123bb7 lui x23, 0x123   r23: 0x123000 //0x341 ???
 0x00086863 bltu x16, x0, 0x10   (not taken)
 0x02000c6f jal x24, 0x20    r24: 0x84, PC: 0xa0
