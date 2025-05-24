@@ -12,6 +12,7 @@ module UART (
     output wire tx
 );
 
+/// UART CONTROLLER
 wire uart_rx, uart_tx;
 
 UART_Controller uart_controller_inst(
@@ -22,6 +23,7 @@ UART_Controller uart_controller_inst(
     .uart_tx(uart_tx)
 );
 
+/// UART RX
 wire [7:0] rx_data;
 wire rx_done;
 
@@ -33,36 +35,23 @@ UART_RX uart_rx_inst(
     .rx_done(rx_done)
 );
 
-wire tx_idle;
-
-// for only one transmission per instruction ///////////////////
-reg uart_tx_prev;
-wire tx_start;
+reg rx_done_reg;
+reg [7:0] rx_data_reg;
 
 always @(posedge CLK100MHZ) begin
-    uart_tx_prev <= uart_tx;
+    rx_done_reg <= rx_done;
+    rx_data_reg <= rx_data;
 end
-
-assign tx_start = (uart_tx == 1'b1) && (uart_tx_prev == 1'b0);
-////////////////////////////////////////////////////////////////
-
-UART_TX uart_tx_inst(
-    .CLK100MHZ(CLK100MHZ),
-    .reset(reset),
-    .tx_start(tx_start),
-    .tx_data(WriteData[7:0]),
-    .tx(tx),
-    .tx_idle(tx_idle)
-);
 
 wire rx_fifo_valid;
 wire [7:0] rx_fifo_read;
 
 FIFO uart_rx_fifo(
-    .clk(clk),
+    .clk_write(CLK100MHZ),
+    .clk_read(clk),
     .reset(reset),
-    .write_enable(rx_done),
-    .write_data(rx_data),
+    .write_enable(rx_done_reg),
+    .write_data(rx_data_reg),
     .read_enable(uart_rx),
     .read_data(rx_fifo_read),
     .valid(rx_fifo_valid)
@@ -76,5 +65,29 @@ Mux_2to1 #(32) uart_fifo_mux(.select(rx_fifo_valid), .input_0(32'hFFFFFFFF), .in
 // if current instruction is uart_rx then fifo_out is selected instead of memory output
 Mux_2to1 #(32) uart_receive_mux(.select(uart_rx), .input_0(ReadData), .input_1(rx_fifo_out), .output_value(ReadData_RX));
 
+/// UART TX
+wire tx_idle;
+wire [7:0] tx_fifo_read;
+wire tx_fifo_valid;
+
+FIFO uart_tx_fifo(
+    .clk_write(clk),
+    .clk_read(CLK100MHZ),
+    .reset(reset),
+    .write_enable(uart_tx),
+    .write_data(WriteData[7:0]),
+    .read_enable(tx_idle),
+    .read_data(tx_fifo_read),
+    .valid(tx_fifo_valid)
+);
+
+UART_TX uart_tx_inst(
+    .CLK100MHZ(CLK100MHZ),
+    .reset(reset),
+    .tx_start(tx_fifo_valid),
+    .tx_data(tx_fifo_read),   
+    .tx(tx),
+    .tx_idle(tx_idle)
+);
 
 endmodule

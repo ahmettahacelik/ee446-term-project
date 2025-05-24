@@ -10,7 +10,7 @@
 0x24:	03 24 40 40		lw x8, 0x404(x0) receive byte2
 0x28:	83 24 40 40		lw x9, 0x404(x0) receive byte3 (expect 0xffffffff)
 0x2C:	23 00 70 40		sb x7, 0x400(x0) send byte1
-0x30:	23 00 70 40		sb x8, 0x400(x0) send byte2
+0x30:	23 00 80 40		sb x8, 0x400(x0) send byte2
 0x34:	63 98 40 00		bne x1, x4, 0x10 (not taken)
 0x38:	33 c5 54 00		xor x10, x9, x5  r10: fffffca5
 0x3C:	93 d5 81 00		srli x11, x3, #8 r11: 0x3
@@ -50,10 +50,10 @@
 0xC4:	00 00 00 00		
 0xC8:	00 00 00 00		
 0xCC:	00 00 00 00		
-0xD0:	00 00 00 00		
-0xD4:	00 00 00 00		
-0xD8:	00 00 00 00		
-0xDC:	00 00 00 00		
+0xD0:	13 0e c0 01		addi x28, x0, #28
+0xD4:	83 2e 40 40		lw x29, 0x404(x0)
+0xD8:	13 0f e0 01		addi x30, x0, #30
+0xDC:	83 2f 40 40		lw x31, 1028(x0)
 0xE0:	00 00 00 00		
 0xE4:	00 00 00 00		
 0xE8:	00 00 00 00		

@@ -30,7 +30,7 @@ module datapath(
 wire [31:0] WD3;
 wire [31:0] PCNext, PCPlus4, PCTarget, Instr, ImmExt;
 wire [31:0] SrcA, SrcB, ALUResult;
-wire [31:0] ReadData, WriteData, Result; 
+wire [31:0] ReadData,ReadData_RX, WriteData, Result; 
 
 assign op     = Instr[6:0];
 assign funct3 = Instr[14:12];
@@ -82,6 +82,7 @@ Extender Extender_inst(
 
 UART uart_inst(
     .CLK100MHZ(CLK100MHZ),   // 100MHZ clock bağlanacak
+    .clk(clk),
     .reset(RESET),
     .rx(UART_TXD_IN),          // RX bağlanacak (UART_TXD_IN)
     .opcode(op),

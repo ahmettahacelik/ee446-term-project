@@ -16,7 +16,7 @@ module MainDecoder(
 localparam opcode_R_REGISTER = 7'b0110011;
 
 localparam opcode_I_IMM = 7'b0010011;
-localparam opcode_I_LOAD = 7'b00000011;
+localparam opcode_I_LOAD = 7'b0000011;
 localparam opcode_I_JALR = 7'b1100111;
 
 localparam opcode_S_STORE = 7'b0100011;
