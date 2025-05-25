@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber report"] 0 "report.bcf" "report.bbl" "report" 1748165634.0812 -1
-  "report.bcf" 1748165633 107992 1372e320b8e132f38eb5706b82283cc8 "pdflatex"
+["biber report"] 1748171412.80569 "report.bcf" "report.bbl" "report" 1748172092.07714 0
+  "report.bcf" 1748172091 107992 1372e320b8e132f38eb5706b82283cc8 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1748165632.92811 "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" "report.pdf" "report" 1748165634.0819 0
+["pdflatex"] 1748172090.95778 "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" "report.pdf" "report" 1748172092.0777 0
   "C:/Users/ahmet/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746350936 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/ahmet/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1726243302 24265333 912a28cc6242761d4fdb43ea2aa9f813 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -63,14 +63,14 @@
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/latex/logreq/logreq.def" 1280941015 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/latex/logreq/logreq.sty" 1280941015 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" 1748165631 9736 cbf7d27a60798a47e0d45f680b2c4b4a ""
-  "figures/controller_rtl.png" 1748162829 83252 c992a78a291157e7a24a3865847dac07 ""
-  "figures/uart_rtl.png" 1748162956 66511 c9cff49eca79c23562697652350e1a2d ""
-  "report.aux" 1748165633 3667 d84b4b4b5066825df71129b9244dee6b "pdflatex"
-  "report.bbl" 1748163401 0 d41d8cd98f00b204e9800998ecf8427e "biber report"
-  "report.run.xml" 1748165633 2238 4752e15492e0e21f4a9728ca56248f1d "pdflatex"
-  "report.tex" 1748165631 9736 cbf7d27a60798a47e0d45f680b2c4b4a ""
-  "report.toc" 1748165633 1454 bc5d0c8101eee986f8e5745b0d833785 "pdflatex"
+  "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" 1748172090 10980 5f5e3f172f2a867cfaaacf1bb9b4905e ""
+  "figures/controller_rtl.png" 1748171408 83252 c992a78a291157e7a24a3865847dac07 ""
+  "figures/uart_rtl.png" 1748171408 66511 c9cff49eca79c23562697652350e1a2d ""
+  "report.aux" 1748172091 4192 684c639c1749b5023388751c3881a8ff "pdflatex"
+  "report.bbl" 1748171414 0 d41d8cd98f00b204e9800998ecf8427e "biber report"
+  "report.run.xml" 1748172091 2238 4752e15492e0e21f4a9728ca56248f1d "pdflatex"
+  "report.tex" 1748172090 10980 5f5e3f172f2a867cfaaacf1bb9b4905e ""
+  "report.toc" 1748172091 1774 d21cbef88611285c72e8b48ffc64b572 "pdflatex"
   (generated)
   "report.aux"
   "report.bcf"

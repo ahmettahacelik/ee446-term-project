@@ -80,7 +80,7 @@ The UART (Universal Asynchronous Receiver-Transmitter) module is responsible for
     \label{fig:uart}
 \end{figure}
 
-\section*{Design Overview}
+\section{Design Overview}
 
 \paragraph{}
 The UART module integrates both transmitting and receiving functionalities while adhering to the 9600 baud 8-N-1 protocol. Memory-mapped I/O is used to send and receive bytes via store and load instructions to addresses \texttt{0x400} and \texttt{0x404}, respectively. When a store is made to \texttt{0x400}, a byte is written to the transmitter FIFO and scheduled for transmission. When a load is performed from \texttt{0x404}, the system reads the most recent byte from the receive FIFO; if no byte is available, the value \texttt{0xFFFFFFFF} is returned.
@@ -91,10 +91,14 @@ The UART controller examines the current instruction's opcode, \texttt{funct3}, 
 \section{Clock Domain Challenges and FIFO Synchronization}
 
 \paragraph{}
-One of the key challenges in designing the UART module was handling the presence of two independent clocks: a 100 MHz clock (\texttt{CLK100MHZ}) required for UART transmission timing, and a manually generated system clock (\texttt{clk}) used by the rest of the processor, including the register file and instruction control. Since UART must transmit data at precise intervals defined by the baud rate, it must operate continuously using \texttt{CLK100MHZ}. However, if both the UART and the register file accessed the same FIFO at their own clock rates without isolation, it would introduce race conditions and data corruption.
+One of the key challenges in designing the UART module was handling the presence of two independent clocks: a 100 MHz clock (\texttt{CLK100MHZ}) used for UART timing, and a slower user-controlled system clock (\texttt{clk}) used by the processor core and instruction sequencing. These clocks operate asynchronously, making it unsafe to directly transfer data across domains without proper synchronization.
 
 \paragraph{}
-To address this, the design includes dual-clock FIFOs that are explicitly controlled with separate clock signals: \texttt{clk\_write} and \texttt{clk\_read}. The write side of the FIFO operates on \texttt{CLK100MHZ}, synchronized with \texttt{UART\_RX} and \texttt{UART\_TX} modules, while the read side operates on the processor’s \texttt{clk}, ensuring that data transfer from UART into the register file occurs safely. This separation of clock domains is essential to maintain system stability and correctness across asynchronous boundaries.
+To address this, the design uses dual-clock FIFO buffers for UART transmission and reception, each operating with distinct read and write clocks. Specifically, the \texttt{rx\_fifo} writes incoming bytes using \texttt{CLK100MHZ}, since it is fed by the UART receiver module, which samples serial input at high speed. Its read operations are driven by the processor's \texttt{clk}, as the register file reads received data at the system clock rate. Conversely, the \texttt{tx\_fifo} receives data from the processor via \texttt{clk} during store operations to address \texttt{0x400}, and its contents are transmitted by the UART transmitter at \texttt{CLK100MHZ}. 
+
+\paragraph{}
+This deliberate separation ensures safe and reliable data movement between asynchronous domains. Without this dual-clock setup, writing data from one domain and reading it from another could cause metastability or timing hazards, potentially corrupting the data. By isolating read and write logic through clock-specific ports in each FIFO, the design maintains correctness and stability throughout UART communication.
+
 
 \section{UART Transmitter and Receiver}
 
@@ -104,12 +108,12 @@ The transmitter module initiates data transmission when a byte is enqueued into 
 \paragraph{}
 The receiver module continuously samples the input \texttt{rx} line using \texttt{CLK100MHZ}. When a valid start bit is detected, it begins capturing bits until the full byte is received. A \texttt{done} flag is raised once reception is complete. The received byte is then pushed into the 16-byte FIFO buffer, ensuring that no bytes are lost if the processor is not immediately ready to read.
 
-\section*{UART Transmitter and Receiver State Machines}
+\section{UART Transmitter and Receiver State Machines}
 
 \paragraph{}
 Both the UART transmitter and receiver modules are implemented as finite state machines (FSMs) that operate on the 100 MHz clock and comply with the 9600 baud 8-N-1 UART protocol. Their behaviors are structured as sequential state transitions, and the FSM logic ensures the correct serialization and deserialization of data.
 
-\subsection*{Transmitter State Machine}
+\subsection{Transmitter State Machine}
 
 \paragraph{}
 The transmitter FSM begins in the \texttt{IDLE} state, where it waits for the \texttt{start} signal to be asserted, indicating that a new byte is ready for transmission. Upon activation, it transitions to the \texttt{START} state and drives the transmission line low to indicate the start bit. After holding the line low for one baud period, the FSM enters the \texttt{DATA} state, during which each of the 8 data bits is shifted out sequentially, least significant bit first.
@@ -134,13 +138,17 @@ Following the data bits, the FSM enters the \texttt{STOP} state to sample the st
 \paragraph{}
 This approach ensures that bytes are received reliably and with proper framing. The \texttt{done} signal is used to indicate reception completion, allowing external logic to push the received byte into a FIFO buffer or register.
 
-\section{Peripheral Interface and Muxing}
+\section{Peripheral Interface and Integration Strategy}
 
 \paragraph{}
-The UART module includes additional logic for interfacing with the processor. When a load operation targets the UART receive address, a multiplexer determines whether valid data exists in the FIFO. If not, it returns \texttt{0xFFFFFFFF}, as required by the design specification. Similarly, when a store operation targets the transmit address, a different multiplexer ensures that the byte written by the processor is passed correctly to the transmit FIFO, provided the transmitter is not currently busy.
+The UART module is designed to integrate seamlessly with the existing processor datapath, requiring minimal changes to the overall system architecture. It relies entirely on memory-mapped communication, interpreting store and load instructions to specific addresses as UART transmit and receive operations, respectively. This eliminates the need for additional global control signals or structural changes outside the UART module itself.
 
 \paragraph{}
-With careful clock domain handling, FIFO synchronization, and protocol adherence, the UART module operates as a robust peripheral enabling reliable serial communication within the single-cycle RISC-V system.
+A key feature of the integration is the \texttt{ReadData\_RX} signal, which is an output of the UART module. This signal is dynamically assigned based on whether the currently executed instruction is a UART receive. If the instruction is a regular memory load, \texttt{ReadData\_RX} simply propagates the value from the data memory, making it identical to \texttt{ReadData}. However, if the instruction is a UART receive, the module substitutes the memory output with a value retrieved from the UART receive FIFO, either the latest received byte or a default fallback value if the buffer is empty.
+
+\paragraph{}
+This design allows the UART to be embedded into the system with minimal modification to the datapath. Specifically, the only change required is at the result selection stage, where the processor chooses between the ALU result and the output from memory (or UART). Since this behavior is already governed by an existing multiplexer, no additional control logic is needed. This elegant interface enables UART communication to function transparently within the single-cycle RISC-V system while preserving the simplicity and modularity of the original datapath.
+
 
 \chapter{Cocotb Testbench}
 
