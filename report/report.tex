@@ -2,8 +2,12 @@
 
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{biblatex}
+%\usepackage{biblatex}
 \usepackage[a4paper, margin=1in]{geometry}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{references.bib}
+\usepackage{url}  % for clickable URLs in bibliography
+
 
 \makeatletter
 \renewcommand{\maketitle}{
@@ -16,7 +20,7 @@
 {\Huge \bf \@title\par}
 \vspace{5cm}
 
-{\LARGE Zülal Uludoğan, }\\[0.5cm]
+{\LARGE Zülal Uludoğan, 2444057}\\[0.5cm]
 {\LARGE Ahmet Taha Çelik, 2515831}
 
 \vfill
@@ -25,12 +29,17 @@
 
 \end{center}
 }\makeatother
+\begin{document}
+\begin{center}
+    \hspace{0.5cm}\includegraphics[scale=1.2]{figures/metu_eelogo.png}
+\end{center}
 
-\title{EE446 Term Project Report \\ Middle East Technical University}
+\title{Middle East Technical University \\[0.5cm]
+EE446 Computer Architecture II \\[0.5cm]
+Term Project Report}
+
 \author{Ahmet Taha Çelik, Zülal Uludoğan}
 \date{25 May 2025}
-
-\begin{document}
 
 \maketitle
 \tableofcontents
@@ -39,8 +48,86 @@
 
 \section{Project Description}
 
+\paragraph{}
+This project involves the implementation of a single-cycle RISC-V processor using Verilog HDL, supporting core RV32I instructions such as arithmetic, logic, load/store, and control flow operations. The processor is built in a modular way, with separate units for the datapath, controller, register file, memory, ALU, and UART. The list of supported instructions is shown in Table~\ref{tab:instr_list}. See \cite{harris2021}  and \cite{riscv_spec2024} more details.
+
+\vspace{-3em}
+\begin{table}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/instr_list.png}
+    \caption{List of Instructions}
+    \label{tab:instr_list}
+\end{table}
+\vspace{-1em}
+
+\paragraph{}
+The design focuses on correct instruction decoding, datapath control, and memory-mapped I/O integration. The UART module enables serial communication by assigning specific load/store instructions to dedicated addresses, and handles synchronization between different clock domains using FIFO buffers.
+
+\paragraph{}
+For verification, a Python-based performance model of the processor is developed and simulated using Cocotb. This model checks instruction behavior cycle-by-cycle and compares the internal states of the Verilog DUT with the expected results, allowing precise debugging and validation of processor functionality. The project demonstrates key concepts in RISC-V architecture, digital system design, and hardware verification through software-driven simulation.
+
+
+
+
 
 \chapter{Datapath Module}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/datapath_flow.jpeg}
+    \caption{Modified RISC-V Single Cycle Computer}
+    \label{fig:datapath}
+\end{figure}
+
+\paragraph{}
+The datapath module is responsible for executing instructions defined in the RISC-V ISA, supporting the instruction types listed in Table~\ref{tab:instr_list}. Most submodules were adapted from laboratory components, but modifications were made to support specific instruction semantics and to align with the RISC-V architecture. A synchronous reset (\texttt{RESET}) is integrated into the module to ensure all registers and memory components are properly initialized.
+
+\paragraph{}
+Unlike ARM, where 16 general-purpose registers are used, the RISC-V register file consists of 32 registers. Register \texttt{x0} is hardwired to zero, as per the RISC-V specification. A 5-to-32 decoder and a 32-to-1 multiplexer are used to handle register selection and writing. The \texttt{Register\_file} module supports debug output and dual read ports, along with a single write port controlled by the \texttt{RegWrite} signal.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/rtl_datapath.png}
+    \caption{Synthesized RTL view of the datapath module}
+    \label{fig:datapath_rtl}
+\end{figure}
+
+\paragraph{}
+The datapath is designed to handle all six RISC-V instruction types—R-type, I-type, S-type, B-type, U-type, and J-type—by routing operands and control signals through shared hardware blocks and dedicated control logic. Each instruction type makes use of a subset of datapath components to perform its operation.
+
+\paragraph{R-type Instructions}
+R-type instructions perform register-to-register arithmetic and logical operations. The instruction provides two source registers (\texttt{rs1} and \texttt{rs2}) and a destination register (\texttt{rd}). The values from \texttt{rs1} and \texttt{rs2} are read from the register file and passed to the ALU. The ALU performs the operation specified by the \texttt{funct3} and \texttt{funct7} fields (e.g., \texttt{ADD}, \texttt{SUB}, \texttt{SLL}), and the result is written back to \texttt{rd} through the \texttt{WD3} multiplexer.
+
+\paragraph{I-type Instructions}
+I-type instructions include immediate arithmetic/logical operations (e.g., \texttt{ADDI}, \texttt{ANDI}), loads (e.g., \texttt{LW}, \texttt{LB}), and \texttt{JALR}. These instructions use one source register and an immediate. The immediate is sign-extended by the \texttt{Extender} module, then used as an operand in the ALU or as an offset for memory access. For arithmetic instructions, the ALU result is written back to \texttt{rd}. For load instructions, the data is read from memory and passed through the \texttt{Result} multiplexer to be written to the register file.
+
+\paragraph{S-type Instructions}
+S-type instructions are store instructions such as \texttt{SW}, \texttt{SH}, and \texttt{SB}. These use two source registers: \texttt{rs1} provides the base address, and \texttt{rs2} provides the data to be stored. The immediate is generated by concatenating two fields and sign-extended. The memory address is computed by adding the immediate to \texttt{rs1}, and the result is used by the memory module to perform the store.
+
+\paragraph{B-type Instructions}
+B-type instructions are conditional branches such as \texttt{BEQ}, \texttt{BNE}, and \texttt{BLT}. The two source registers are compared using the ALU, which performs subtraction and sets condition flags. If the branch condition is met, the program counter is updated to \texttt{PC + immediate}; otherwise, it proceeds sequentially. The \texttt{PCSrc} signal controls which address is selected via the \texttt{PCNext} multiplexer.
+
+\paragraph{U-type Instructions}
+U-type instructions such as \texttt{LUI} and \texttt{AUIPC} use a 20-bit immediate value shifted left by 12 bits. For \texttt{LUI}, the immediate is written directly into the destination register. For \texttt{AUIPC}, the immediate is added to the current PC and the result is written back to \texttt{rd}. The extended immediate is generated by the \texttt{Extender} and routed through the \texttt{Mux\_WD3} path.
+
+\paragraph{J-type Instructions}
+J-type instructions, specifically \texttt{JAL}, perform an unconditional jump to a target address calculated from the PC and a 21-bit immediate. Before jumping, the return address (\texttt{PC + 4}) is saved into \texttt{rd}. The PC update logic and the \texttt{Mux\_WD3} handle this behavior, and the control signals ensure the correct values are selected and stored.
+
+\paragraph{}
+Each instruction type is supported through coordinated control of multiplexers, the ALU, the register file, the extender, and memory modules, all synchronized by the controller to ensure correct execution paths across the datapath.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/rtl_extender.png}
+    \caption{Synthesized RTL view of the extender module}
+    \label{fig:extender rtl}
+\end{figure}
+
+\paragraph{}
+All arithmetic and logic operations, including shift operations, are implemented inside the \texttt{ALU} module. Shift instructions use immediate values or register contents as shift amounts, and the ALU supports logical (\texttt{SRL}) and arithmetic (\texttt{SRA}) shifts accordingly. For branch instructions such as \texttt{BEQ} and \texttt{BNE}, the ALU performs a subtraction to set condition flags, which are later evaluated in the control path to determine branch decisions.
+
+\paragraph{}
+The \texttt{Memory} module is adapted to support byte (\texttt{LB}/\texttt{SB}), halfword (\texttt{LH}/\texttt{SH}), and word (\texttt{LW}/\texttt{SW}) memory accesses. It uses the \texttt{funct3} field of the instruction to determine the access width and whether sign-extension or zero-extension should be applied to loaded data. For store operations, it selectively writes the relevant portion (byte/halfword/word) of the register data into memory without modifying adjacent memory locations.
 
 
 \chapter{Controller Module}
@@ -151,6 +238,52 @@ This design allows the UART to be embedded into the system with minimal modifica
 
 
 \chapter{Cocotb Testbench}
+\paragraph{}
+The Cocotb testbenches used in the laboratories of this course, originally designed for ARM architectures, were modified to support the RISC-V instruction set by adapting both the instruction decoder and the performance model components of the test framework. These modifications enabled cycle-accurate simulation of a single-cycle RISC-V processor and allowed for automated verification against a Verilog-based DUT (Device Under Test).
+
+\paragraph{}
+In the RISC-V architecture, each instruction is composed of standard fields such as \texttt{opcode}, \texttt{rd}, \texttt{funct3}, \texttt{rs1}, \texttt{rs2}, and \texttt{funct7}, which differ from ARM’s encoding structure. To handle this, a Python class was implemented to parse each 32-bit hexadecimal instruction. The instruction is first converted to a binary string, from which the fields are extracted based on bit positions defined by the RISC-V specification. Additionally, depending on the instruction type (I-type, S-type, B-type, U-type, or J-type), the immediate values are sign-extended accordingly. Instruction decoding is performed using conditional logic that checks combinations of \texttt{opcode}, \texttt{funct3}, and \texttt{funct7} to identify the exact operation (e.g., \texttt{ADD}, \texttt{SUB}, \texttt{LW}, \texttt{BEQ}). The instruction memory content used for verification is partially shown in Figure~\ref{fig:instr}. To obtain the hexadecimal-encoded instructions for the testbench, the RISC-V instruction converter tool was used \cite{rvcodecjs}.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/exp_intrhex.png}
+    \caption{Some part of instructions used for the test}
+    \label{fig:instr}
+\end{figure}
+
+\paragraph{}
+To simulate processor behavior, a performance model was developed in Python. This model maintains a register file and a program counter and mimics the functional behavior of the single-cycle processor. A memory abstraction is used to replicate byte-addressable memory and support load and store instructions. The simulation begins by reading instructions from the input file \texttt{Instructions.hex}, reversing their endianness to match the hardware layout, and decoding them using the instruction class. Each instruction is then executed by the performance model, and its effects on the register file and program counter are tracked.
+
+\paragraph{}
+At each cycle, the testbench fetches the next instruction, logs its decoding, performs the corresponding operation in the software model, and compares the result with the output of the Verilog design. This includes checking all 32 registers and the PC value. For memory operations, data is either written to or read from the memory abstraction, depending on whether the instruction is a load or store. For control flow instructions such as \texttt{BEQ}, \texttt{BNE}, \texttt{JAL}, and \texttt{JALR}, the program counter is conditionally updated in accordance with the instruction semantics.
+
+ \paragraph{}
+In the testbench, UART read operations are simulated by performing a load instruction from the memory-mapped address \texttt{0x00000404}, which corresponds to the UART receive buffer. During normal operation, this address returns the most recently received byte. However, if no data has been received, the UART module is designed to return the default value \texttt{0xFFFFFFFF}. Therefore, within the testbench logic, it is essential to check whether the value read from \texttt{0x00000404} equals \texttt{0xFFFFFFFF}, as this indicates that the receive FIFO is empty and no valid byte is available.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/tb_result.png}
+    \caption{An example of testbench result}
+    \label{fig:tb result}
+\end{figure}
+
+\chapter{Conclusion}
+
+\paragraph{}
+In this project, a single-cycle RISC-V processor was successfully designed, implemented, and verified using Verilog HDL and Cocotb. The architecture supports a representative subset of the RV32I instruction set, including arithmetic, logic, memory, and control flow operations. All components—including the datapath, controller, ALU, memory, and UART module—were developed with a modular design philosophy to ensure flexibility and scalability.
+
+\paragraph{}
+A key achievement of this work is the integration of a memory-mapped UART module capable of transmitting and receiving data via serial communication. This involved careful management of asynchronous clock domains using dual-clock FIFOs and ensured robust data transfer across the processor and UART interfaces.
+
+\paragraph{}
+Verification was accomplished using a custom Python-based performance model and Cocotb testbenches. This approach enabled detailed cycle-by-cycle comparisons between the behavioral model and the Verilog design, helping to identify and resolve functional mismatches during development. The use of Cocotb also facilitated modular testing and improved debugging efficiency.
+
+\paragraph{}
+Overall, this project provided hands-on experience with the fundamentals of processor architecture, digital system design, and verification methodologies. Through this work, we gained deeper insights into the RISC-V ISA, HDL-based implementation techniques, and modern verification practices using software-hardware co-simulation.
+
+\printbibliography
+
 
 
 \end{document}
