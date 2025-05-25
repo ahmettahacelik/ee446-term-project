@@ -1,11 +1,12 @@
 # Fdb version 4
-["biber report"] 1748171412.80569 "report.bcf" "report.bbl" "report" 1748172092.07714 0
-  "report.bcf" 1748172091 107992 1372e320b8e132f38eb5706b82283cc8 "pdflatex"
+["biber report"] 1748182247.14881 "report.bcf" "report.bbl" "report" 1748182491.68956 0
+  "references.bib" 1748182243 896 8f6c88a95296843d084ec9131e51d3e0 ""
+  "report.bcf" 1748182491 108688 f611cb1d39bdc6a1659d81633c0afa7d "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1748172090.95778 "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" "report.pdf" "report" 1748172092.0777 0
+["pdflatex"] 1748182489.13697 "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" "report.pdf" "report" 1748182491.69052 0
   "C:/Users/ahmet/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746350936 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/ahmet/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1726243302 24265333 912a28cc6242761d4fdb43ea2aa9f813 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -19,10 +20,12 @@
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti12.tfm" 1136765053 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt12.tfm" 1136765053 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1247596666 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
+  "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1247596667 36118 fad905eba93cff5bce1e185fe980a177 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1247596666 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty" 1643997108 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
@@ -63,14 +66,21 @@
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/latex/logreq/logreq.def" 1280941015 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/latex/logreq/logreq.sty" 1280941015 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "C:/Users/ahmet/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" 1748172090 10980 5f5e3f172f2a867cfaaacf1bb9b4905e ""
+  "c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex" 1748182485 27294 d105212e688f9510a8ca2cfcb17ae41a ""
   "figures/controller_rtl.png" 1748171408 83252 c992a78a291157e7a24a3865847dac07 ""
+  "figures/datapath_flow.jpeg" 1748182243 476125 ccd3e9b8d8c2861fc48214f9b8e5a961 ""
+  "figures/exp_intrhex.png" 1748182243 19810 6f1733a214e02d67c3ce6b7bf52e2a74 ""
+  "figures/instr_list.png" 1748182243 65201 d2e58bdbf056b63254571b2ecd9aaa80 ""
+  "figures/metu_eelogo.png" 1748182243 9423 938d6d4348d7c2610736bafa8f604c30 ""
+  "figures/rtl_datapath.png" 1748182243 62021 2928c0a6250ddbeefc98e9f25d4fb481 ""
+  "figures/rtl_extender.png" 1748182243 26697 b99ae167d7778e0225c57034955097ea ""
+  "figures/tb_result.png" 1748182243 36013 21d5b81bb0fdcea434267c5812570b93 ""
   "figures/uart_rtl.png" 1748171408 66511 c9cff49eca79c23562697652350e1a2d ""
-  "report.aux" 1748172091 4192 684c639c1749b5023388751c3881a8ff "pdflatex"
-  "report.bbl" 1748171414 0 d41d8cd98f00b204e9800998ecf8427e "biber report"
-  "report.run.xml" 1748172091 2238 4752e15492e0e21f4a9728ca56248f1d "pdflatex"
-  "report.tex" 1748172090 10980 5f5e3f172f2a867cfaaacf1bb9b4905e ""
-  "report.toc" 1748172091 1774 d21cbef88611285c72e8b48ffc64b572 "pdflatex"
+  "report.aux" 1748182491 8256 cb5976f152fd71344927b25c0a1b81ac "pdflatex"
+  "report.bbl" 1748182251 2763 d1a4a14cf6ebe9f9e330ca3c9e3c5e38 "biber report"
+  "report.run.xml" 1748182491 2319 1dbeae9c91c70510d621aca3b4772e83 "pdflatex"
+  "report.tex" 1748182485 27294 d105212e688f9510a8ca2cfcb17ae41a ""
+  "report.toc" 1748182491 3015 e6958b58413a160ecc1516adeb2d32e0 "pdflatex"
   (generated)
   "report.aux"
   "report.bcf"

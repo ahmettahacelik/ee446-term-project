@@ -1,0 +1,73 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{harris2021}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=52c72575b40d70ead2d5f56d5b49ae17}{%
+           family={Harris},
+           familyi={H\bibinitperiod},
+           given={Sarah\bibnamedelima L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=4a8413316ec7be7d755a4fe10f938783}{%
+           family={Harris},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima Money},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{fullhash}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{fullhashraw}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{bibnamehash}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{authorbibnamehash}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{authornamehash}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{authorfullhash}{39a6d681441cdcca1034f61d94e3473b}
+      \strng{authorfullhashraw}{39a6d681441cdcca1034f61d94e3473b}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Digital Design and Computer Architecture: RISC-V Edition}
+      \field{year}{2021}
+    \endentry
+    \entry{rvcodecjs}{misc}{}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://luplab.gitlab.io/rvcodecjs/}}
+      \field{note}{Accessed May 2025}
+      \field{title}{RISC-V Instruction Decoder - rvcodecjs}
+    \endentry
+    \entry{riscv_spec2024}{misc}{}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://drive.google.com/file/d/1uviu1nH-tScFfgrovvFCrj7Omv8tFtkp/view}}
+      \field{note}{Version 20240411}
+      \field{title}{The RISC-V Instruction Set Manual, Volume I: User-Level ISA}
+      \field{year}{2024}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

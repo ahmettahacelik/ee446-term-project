@@ -151,9 +151,22 @@ The \texttt{ALUDecoder} further refines control signal generation by examining t
 \paragraph{}
 The \texttt{PCLogic} unit handles program counter selection. It considers both the branching conditions and the jump instructions to compute the correct value of the \texttt{PCSrc} signal. This logic is critical for implementing both conditional and unconditional control-flow changes in the processor.
 
-\paragraph{}
-The modularity of this controller design simplifies debugging and testing. Each submodule is implemented independently and tested in isolation before integration into the main controller unit.
+\section{Instruction Execution in the Controller}
 
+\paragraph{}
+The controller governs instruction execution by generating the appropriate control signals that drive datapath components. Its architecture is modular and consists of three submodules: \texttt{MainDecoder}, \texttt{ALUDecoder}, and \texttt{PCLogic}. Each module has a specific responsibility in decoding the instruction and enabling the correct system behavior.
+
+\paragraph{}
+The \texttt{MainDecoder} identifies the instruction type based on its 7-bit opcode. Local parameters are defined to represent each category of instruction — including R-type, I-type (with subtypes for ALU immediates, loads, and JALR), S-type, B-type, U-type (LUI, AUIPC), and J-type (JAL). The decoder assigns values to high-level control signals such as \texttt{RegWrite}, \texttt{MemWrite}, \texttt{ALUSrc}, \texttt{ResultSrc}, and \texttt{ImmSrc}. For example, R-type instructions enable register writing and set the ALU to use register operands. Load instructions assert both \texttt{ALUSrc = 1} and \texttt{RegWrite = 1}, and select the memory read result as the register write-back source. Store and branch instructions disable \texttt{RegWrite} but assert either \texttt{MemWrite} or \texttt{Branch} accordingly.
+
+\paragraph{}
+Once the instruction type is determined, the \texttt{ALUDecoder} refines the ALU operation by interpreting the \texttt{funct3}, \texttt{funct7}, and \texttt{ALUOp} values. The \texttt{ALUOp} signal is set by the \texttt{MainDecoder} to broadly classify operations (e.g., arithmetic, logical, or branching), while the \texttt{ALUDecoder} translates this into a precise 4-bit \texttt{ALUControl} signal that selects operations like addition, subtraction, shift left/right, set-less-than, and logical bitwise operations. For instance, \texttt{funct3 = 000} and \texttt{funct7 = 0100000} are used together to distinguish \texttt{SUB} from \texttt{ADD}. Similarly, shift instructions are detected by decoding \texttt{funct3} patterns and checking the shift amount interpretation via \texttt{funct7}.
+
+\paragraph{}
+Control flow instructions such as branches and jumps are managed by the \texttt{PCLogic} module. This unit uses the \texttt{Branch} and \texttt{Jump} signals from the \texttt{MainDecoder}, along with the instruction type and ALU flags, to determine whether the program counter should be updated with a new address. For conditional branches, \texttt{PCSrc} is asserted only if the branching condition is met, based on comparisons like equality, less-than, or greater-than. For unconditional jumps (e.g., \texttt{JAL}, \texttt{JALR}), \texttt{PCSrc} is directly activated and the appropriate jump target is selected. The \texttt{PCLogic} ensures that changes to control flow are performed only when the instruction semantics and execution conditions are fully satisfied.
+
+\paragraph{}
+Together, these three submodules decompose the control problem into manageable layers: high-level instruction decoding, detailed ALU operation decoding, and control flow decision-making. This layered design supports modularity, simplifies debugging, and ensures correct control signal generation for all instruction types in the RV32I instruction set.
 
 \chapter{UART Module}
 

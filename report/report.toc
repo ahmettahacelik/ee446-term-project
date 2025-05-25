@@ -1,37 +1,67 @@
 \contentsline {chapter}{\numberline {1}Introduction}{3}{}%
 \contentsline {section}{\numberline {1.1}Project Description}{3}{}%
+\contentsline {paragraph}{}{3}{}%
+\contentsline {paragraph}{}{3}{}%
+\contentsline {paragraph}{}{3}{}%
 \contentsline {chapter}{\numberline {2}Datapath Module}{4}{}%
-\contentsline {chapter}{\numberline {3}Controller Module}{5}{}%
+\contentsline {paragraph}{}{4}{}%
+\contentsline {paragraph}{}{4}{}%
 \contentsline {paragraph}{}{5}{}%
-\contentsline {paragraph}{}{5}{}%
-\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{R-type Instructions}{5}{}%
+\contentsline {paragraph}{I-type Instructions}{5}{}%
+\contentsline {paragraph}{S-type Instructions}{5}{}%
+\contentsline {paragraph}{B-type Instructions}{5}{}%
+\contentsline {paragraph}{U-type Instructions}{6}{}%
+\contentsline {paragraph}{J-type Instructions}{6}{}%
 \contentsline {paragraph}{}{6}{}%
 \contentsline {paragraph}{}{6}{}%
-\contentsline {chapter}{\numberline {4}UART Module}{7}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {chapter}{\numberline {3}Controller Module}{7}{}%
 \contentsline {paragraph}{}{7}{}%
-\contentsline {section}{\numberline {4.1}Design Overview}{7}{}%
 \contentsline {paragraph}{}{7}{}%
 \contentsline {paragraph}{}{7}{}%
-\contentsline {section}{\numberline {4.2}Clock Domain Challenges and FIFO Synchronization}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {section}{\numberline {3.1}Instruction Execution in the Controller}{8}{}%
 \contentsline {paragraph}{}{8}{}%
 \contentsline {paragraph}{}{8}{}%
 \contentsline {paragraph}{}{8}{}%
-\contentsline {section}{\numberline {4.3}UART Transmitter and Receiver}{8}{}%
 \contentsline {paragraph}{}{8}{}%
 \contentsline {paragraph}{}{8}{}%
-\contentsline {section}{\numberline {4.4}UART Transmitter and Receiver State Machines}{8}{}%
-\contentsline {paragraph}{}{8}{}%
-\contentsline {subsection}{\numberline {4.4.1}Transmitter State Machine}{9}{}%
+\contentsline {chapter}{\numberline {4}UART Module}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {section}{\numberline {4.1}Design Overview}{9}{}%
 \contentsline {paragraph}{}{9}{}%
 \contentsline {paragraph}{}{9}{}%
-\contentsline {paragraph}{}{9}{}%
-\contentsline {subsection}{\numberline {4.4.2}Receiver State Machine}{9}{}%
-\contentsline {paragraph}{}{9}{}%
-\contentsline {paragraph}{}{9}{}%
-\contentsline {paragraph}{}{9}{}%
-\contentsline {paragraph}{}{9}{}%
-\contentsline {section}{\numberline {4.5}Peripheral Interface and Integration Strategy}{9}{}%
-\contentsline {paragraph}{}{9}{}%
+\contentsline {section}{\numberline {4.2}Clock Domain Challenges and FIFO Synchronization}{10}{}%
 \contentsline {paragraph}{}{10}{}%
 \contentsline {paragraph}{}{10}{}%
-\contentsline {chapter}{\numberline {5}Cocotb Testbench}{11}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {section}{\numberline {4.3}UART Transmitter and Receiver}{10}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {section}{\numberline {4.4}UART Transmitter and Receiver State Machines}{10}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {subsection}{\numberline {4.4.1}Transmitter State Machine}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {subsection}{\numberline {4.4.2}Receiver State Machine}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {section}{\numberline {4.5}Peripheral Interface and Integration Strategy}{11}{}%
+\contentsline {paragraph}{}{11}{}%
+\contentsline {paragraph}{}{12}{}%
+\contentsline {paragraph}{}{12}{}%
+\contentsline {chapter}{\numberline {5}Cocotb Testbench}{13}{}%
+\contentsline {paragraph}{}{13}{}%
+\contentsline {paragraph}{}{13}{}%
+\contentsline {paragraph}{}{13}{}%
+\contentsline {paragraph}{}{14}{}%
+\contentsline {paragraph}{}{14}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{15}{}%
+\contentsline {paragraph}{}{15}{}%
+\contentsline {paragraph}{}{15}{}%
+\contentsline {paragraph}{}{15}{}%
+\contentsline {paragraph}{}{15}{}%
