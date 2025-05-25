@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {1.1}Project Description}{3}{}%
+\contentsline {chapter}{\numberline {2}Datapath Module}{4}{}%
+\contentsline {chapter}{\numberline {3}Controller Module}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {chapter}{\numberline {4}UART Module}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {section}{\numberline {4.1}Clock Domain Challenges and FIFO Synchronization}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {section}{\numberline {4.2}UART Transmitter and Receiver}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {subsection}{\numberline {4.2.1}Receiver State Machine}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {section}{\numberline {4.3}Peripheral Interface and Muxing}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {chapter}{\numberline {5}Cocotb Testbench}{10}{}%

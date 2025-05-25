@@ -1,0 +1,496 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.13)  25 MAY 2025 12:33
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex
+(c:/Users/ahmet/Documents/GitHub/ee446-term-project/report/report.tex
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-08-16>
+(C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2024/02/08 v1.4n Standard LaTeX document class
+(C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count194
+\c@chapter=\count195
+\c@section=\count196
+\c@subsection=\count197
+\c@subsubsection=\count198
+\c@paragraph=\count199
+\c@subparagraph=\count266
+\c@figure=\count267
+\c@table=\count268
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count269
+\float@exts=\toks18
+\float@box=\box52
+\@float@everytoks=\toks19
+\@floatcapt=\box53
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count270
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count271
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count272
+\c@listtotal=\count273
+\c@listcount=\count274
+\c@liststart=\count275
+\c@liststop=\count276
+\c@citecount=\count277
+\c@citetotal=\count278
+\c@multicitecount=\count279
+\c@multicitetotal=\count280
+\c@instcount=\count281
+\c@maxnames=\count282
+\c@minnames=\count283
+\c@maxitems=\count284
+\c@minitems=\count285
+\c@citecounter=\count286
+\c@maxcitecounter=\count287
+\c@savedcitecounter=\count288
+\c@uniquelist=\count289
+\c@uniquename=\count290
+\c@refsection=\count291
+\c@refsegment=\count292
+\c@maxextratitle=\count293
+\c@maxextratitleyear=\count294
+\c@maxextraname=\count295
+\c@maxextradate=\count296
+\c@maxextraalpha=\count297
+\c@abbrvpenalty=\count298
+\c@highnamepenalty=\count299
+\c@lownamepenalty=\count300
+\c@maxparens=\count301
+\c@parenlevel=\count302
+\blx@tempcnta=\count303
+\blx@tempcntb=\count304
+\blx@tempcntc=\count305
+\c@blx@maxsection=\count306
+\blx@maxsegment@0=\count307
+\blx@notetype=\count308
+\blx@parenlevel@text=\count309
+\blx@parenlevel@foot=\count310
+\blx@sectionciteorder@0=\count311
+\blx@sectionciteorderinternal@0=\count312
+\blx@entrysetcounter=\count313
+\blx@biblioinstance=\count314
+\labelnumberwidth=\skip51
+\labelalphawidth=\skip52
+\biblabelsep=\skip53
+\bibitemsep=\skip54
+\bibnamesep=\skip55
+\bibinitsep=\skip56
+\bibparsep=\skip57
+\bibhang=\skip58
+\blx@bcfin=\read2
+\blx@bcfout=\write3
+\blx@langwohyphens=\language79
+\c@mincomprange=\count315
+\c@maxcomprange=\count316
+\c@mincompwidth=\count317
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+File: blx-dm.def 2024/03/21 v3.20 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count318
+\c@savedafterword=\count319
+\c@annotator=\count320
+\c@savedannotator=\count321
+\c@author=\count322
+\c@savedauthor=\count323
+\c@bookauthor=\count324
+\c@savedbookauthor=\count325
+\c@commentator=\count326
+\c@savedcommentator=\count327
+\c@editor=\count328
+\c@savededitor=\count329
+\c@editora=\count330
+\c@savededitora=\count331
+\c@editorb=\count332
+\c@savededitorb=\count333
+\c@editorc=\count334
+\c@savededitorc=\count335
+\c@foreword=\count336
+\c@savedforeword=\count337
+\c@holder=\count338
+\c@savedholder=\count339
+\c@introduction=\count340
+\c@savedintroduction=\count341
+\c@namea=\count342
+\c@savednamea=\count343
+\c@nameb=\count344
+\c@savednameb=\count345
+\c@namec=\count346
+\c@savednamec=\count347
+\c@translator=\count348
+\c@savedtranslator=\count349
+\c@shortauthor=\count350
+\c@savedshortauthor=\count351
+\c@shorteditor=\count352
+\c@savedshorteditor=\count353
+\c@labelname=\count354
+\c@savedlabelname=\count355
+\c@institution=\count356
+\c@savedinstitution=\count357
+\c@lista=\count358
+\c@savedlista=\count359
+\c@listb=\count360
+\c@savedlistb=\count361
+\c@listc=\count362
+\c@savedlistc=\count363
+\c@listd=\count364
+\c@savedlistd=\count365
+\c@liste=\count366
+\c@savedliste=\count367
+\c@listf=\count368
+\c@savedlistf=\count369
+\c@location=\count370
+\c@savedlocation=\count371
+\c@organization=\count372
+\c@savedorganization=\count373
+\c@origlocation=\count374
+\c@savedoriglocation=\count375
+\c@origpublisher=\count376
+\c@savedorigpublisher=\count377
+\c@publisher=\count378
+\c@savedpublisher=\count379
+\c@language=\count380
+\c@savedlanguage=\count381
+\c@origlanguage=\count382
+\c@savedoriglanguage=\count383
+\c@pageref=\count384
+\c@savedpageref=\count385
+\shorthandwidth=\skip59
+\shortjournalwidth=\skip60
+\shortserieswidth=\skip61
+\shorttitlewidth=\skip62
+\shortauthorwidth=\skip63
+\shorteditorwidth=\skip64
+\locallabelnumberwidth=\skip65
+\locallabelalphawidth=\skip66
+\localshorthandwidth=\skip67
+\localshortjournalwidth=\skip68
+\localshortserieswidth=\skip69
+\localshorttitlewidth=\skip70
+\localshortauthorwidth=\skip71
+\localshorteditorwidth=\skip72
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
+File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+\c@textcitecount=\count386
+\c@textcitetotal=\count387
+\c@textcitemaxnames=\count388
+\c@biburlbigbreakpenalty=\count389
+\c@biburlbreakpenalty=\count390
+\c@biburlnumpenalty=\count391
+\c@biburlucpenalty=\count392
+\c@biburllcpenalty=\count393
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count394
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
+File: numeric.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
+File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count395
+\c@bbx:relatedtotal=\count396
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric.cbx
+File: numeric.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-08-16 L3 programming layer (loader) 
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count397
+\l__pdf_internal_box=\box54
+))
+Package biblatex Info: ... and expl3
+(biblatex)             2024-08-16 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3.sty (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
+)) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count398
+\Gm@cntv=\count399
+\c@Gm@tempcnt=\count400
+\Gm@bindingoffset=\dimen144
+\Gm@wd@mp=\dimen145
+\Gm@odd@mp=\dimen146
+\Gm@even@mp=\dimen147
+\Gm@layoutwidth=\dimen148
+\Gm@layoutheight=\dimen149
+\Gm@layouthoffset=\dimen150
+\Gm@layoutvoffset=\dimen151
+\Gm@dimlist=\toks20
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+\@quotelevel=\count401
+\@quotereset=\count402
+ (report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count403
+\scratchdimen=\dimen152
+\scratchbox=\box55
+\nofMPsegments=\count404
+\nofMParguments=\count405
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count406
+\MPscratchDim=\dimen153
+\MPnumerator=\count407
+\makeMPintoPDFobject=\count408
+\everyMPtoPDFconversion=\toks22
+) (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (C:\Users\ahmet\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `report.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'report.bbl' found.
+ (report.bbl)
+Package biblatex Info: Reference section=0 on input line 33.
+Package biblatex Info: Reference segment=0 on input line 33.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+
+[1
+
+{C:/Users/ahmet/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (report.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
+\tf@toc=\write4
+\openout4 = `report.toc'.
+
+
+
+[2
+
+]
+Chapter 1.
+
+
+[3
+
+]
+Chapter 2.
+
+
+[4
+
+]
+Chapter 3.
+<figures/controller_rtl.png, id=17, 1169.87062pt x 606.01407pt>
+File: figures/controller_rtl.png Graphic file (type png)
+<use figures/controller_rtl.png>
+Package pdftex.def Info: figures/controller_rtl.png  used on input line 53.
+(pdftex.def)             Requested size: 452.9679pt x 234.64308pt.
+
+
+[5
+
+ <./figures/controller_rtl.png>]
+
+[6]
+Chapter 4.
+<figures/uart_rtl.png, id=27, 1370.11874pt x 362.85562pt>
+File: figures/uart_rtl.png Graphic file (type png)
+<use figures/uart_rtl.png>
+Package pdftex.def Info: figures/uart_rtl.png  used on input line 78.
+(pdftex.def)             Requested size: 452.9679pt x 119.95865pt.
+
+
+[7
+
+ <./figures/uart_rtl.png>]
+
+[8]
+
+[9]
+Chapter 5.
+
+
+[10
+
+] (report.aux)
+ ***********
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-08-16>
+ ***********
+Package logreq Info: Writing requests to 'report.run.xml'.
+\openout1 = `report.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 9811 strings out of 473899
+ 188164 string characters out of 5726500
+ 1934960 words of memory out of 5000000
+ 32618 multiletter control sequences out of 15000+600000
+ 563397 words of font info for 54 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 66i,6n,81p,753b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/ahmet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on report.pdf (10 pages, 195112 bytes).
+PDF statistics:
+ 60 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+
