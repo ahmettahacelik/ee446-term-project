@@ -3,7 +3,7 @@ input [ADDR_WIDTH-1:0] ADDR,
 output [(BYTE_SIZE*8)-1:0] RD 
 );
 
-reg [7:0] mem [255:0];
+reg [7:0] mem [1023:0];
 
 initial begin
     $readmemh("Instructions.hex", mem, 0); // You will need this for real tests

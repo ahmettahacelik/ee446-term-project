@@ -48,7 +48,7 @@ class TB:
         for i in range(32):
             self.logger.debug("Register%d: %d \t %d",i,self.Register_File[i], self.dut_regfile.Reg_Out[i].value.integer)
             assert self.Register_File[i] == self.dut_regfile.Reg_Out[i].value
-        #assert self.PC == self.dut_PC.value
+        assert self.PC == self.dut_PC.value
         
     #Function to write into the register file
     def write_to_register_file(self, register_no, data):
@@ -120,7 +120,13 @@ class TB:
         elif name == "SLLI":
             self.write_to_register_file(instr.rd, rf[instr.rs1] << (instr.imm_i & 0x1F))
         elif name == "SLTI":
-            self.write_to_register_file(instr.rd, int(rf[instr.rs1] < instr.imm_i))
+            rs1_val = rf[instr.rs1] & 0xFFFFFFFF
+            imm_val = instr.imm_i & 0xFFFFFFFF
+            if rs1_val & 0x80000000:
+                rs1_val -= 0x100000000
+            if imm_val & 0x80000000:
+                imm_val -= 0x100000000
+            self.write_to_register_file(instr.rd, int(rs1_val < imm_val))
         elif name == "SLTIU":
             self.write_to_register_file(instr.rd, int((rf[instr.rs1] & 0xFFFFFFFF) < (instr.imm_i & 0xFFFFFFFF)))
         elif name == "XORI":
@@ -191,9 +197,23 @@ class TB:
         elif name == "BNE":
             if rf[instr.rs1] != rf[instr.rs2]: self.PC += instr.imm_b - 4
         elif name == "BLT":
-            if rf[instr.rs1] < rf[instr.rs2]: self.PC += instr.imm_b - 4
+            rs1_val = rf[instr.rs1] & 0xFFFFFFFF
+            rs2_val = rf[instr.rs2] & 0xFFFFFFFF
+            if rs1_val & 0x80000000:
+                rs1_val -= 0x100000000
+            if rs2_val & 0x80000000:
+                rs2_val -= 0x100000000
+            if rs1_val < rs2_val:
+                self.PC += instr.imm_b - 4  # -4 because PC already advanced
         elif name == "BGE":
-            if rf[instr.rs1] >= rf[instr.rs2]: self.PC += instr.imm_b - 4
+            rs1_val = rf[instr.rs1] & 0xFFFFFFFF
+            rs2_val = rf[instr.rs2] & 0xFFFFFFFF
+            if rs1_val & 0x80000000:
+                rs1_val -= 0x100000000
+            if rs2_val & 0x80000000:
+                rs2_val -= 0x100000000
+            if rs1_val >= rs2_val:
+                self.PC += instr.imm_b - 4  # Adjust for already incremented PC
         elif name == "BLTU":
             if (rf[instr.rs1] & 0xFFFFFFFF) < (rf[instr.rs2] & 0xFFFFFFFF): self.PC += instr.imm_b - 4
         elif name == "BGEU":
